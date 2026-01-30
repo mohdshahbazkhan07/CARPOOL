@@ -9,4 +9,5 @@ public class List {
         List list = new List();
         System.out.println("List created successfully!");
     }
+
 }
