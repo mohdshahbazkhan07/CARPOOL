@@ -1,18 +1,22 @@
+import java.sql.Timestamp;
+
 public class Booking {
     private int booking_id;
     private int ride_id;
     private int user_id;
-    private int numberOfSeats;
+    private int seatsBooked;
     private long totalFare;
+    private Timestamp bookingTime;
     private String bookingStatus;
 
-    public Booking(int booking_id, int ride_id, int user_id, int numberOfSeats, long totalFare) {
+    public Booking(int booking_id, int ride_id, int user_id, int seatsBooked, long totalFare, Timestamp bookingTime, String bookingStatus) {
         this.booking_id = booking_id;
         this.ride_id = ride_id;
         this.user_id = user_id;
-        this.numberOfSeats = numberOfSeats;
+        this.seatsBooked = seatsBooked;
         this.totalFare = totalFare;
-        this.bookingStatus = "CONFIRMED";
+        this.bookingTime = bookingTime;
+        this.bookingStatus = bookingStatus;
     }
 
     // Getters
@@ -29,11 +33,15 @@ public class Booking {
     }
 
     public int getNumberOfSeats() {
-        return numberOfSeats;
+        return seatsBooked;
     }
 
     public long getTotalFare() {
         return totalFare;
+    }
+
+    public Timestamp getBookingTime() {
+        return bookingTime;
     }
 
     public String getBookingStatus() {
@@ -50,8 +58,9 @@ public class Booking {
         return "Booking ID : " + booking_id +
                 "\nRide ID : " + ride_id +
                 "\nUser ID : " + user_id +
-                "\nNumber of Seats : " + numberOfSeats +
+                "\nNumber of Seats : " + seatsBooked +
                 "\nTotal Fare : " + totalFare +
+                "\nBooking Time : " + bookingTime +
                 "\nStatus : " + bookingStatus;
     }
 }
