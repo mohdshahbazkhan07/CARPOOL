@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         displayMainMenu();
@@ -78,10 +78,10 @@ public class Main {
         System.out.println("\n========== DELETE ACCOUNT ==========");
         System.out.print("Enter your User ID: ");
         int userId = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
 
         System.out.print("Enter your password: ");
         String password = scanner.nextLine();
-        scanner.nextLine(); // Consume newline after password input
 
         RideBookingSystem.deleteAccount(userId, password);
     }
@@ -126,7 +126,6 @@ public class Main {
         scanner.nextLine();
 
         ArrayList<Ride> availableRides = RideBookingSystem.searchRides(userId, source, destination, seats);
-
         if (availableRides.isEmpty()) {
             System.out.println("No rides found!");
             return;
